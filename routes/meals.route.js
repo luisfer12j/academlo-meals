@@ -1,6 +1,8 @@
 const express = require('express');
+//Controllers
 const { createMeal, getAllMeals, getMealById, updateMeal, deleteMeal } = require('../controllers/meals.controller');
 const { validMealExist } = require('../middlewares/meals.middlewares');
+//Middlewares
 const { protectToken, validRole } = require('../middlewares/users.midlewares');
 const { mealValidations, errorValidations } = require('../middlewares/validations.middlewares');
 

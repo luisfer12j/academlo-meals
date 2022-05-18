@@ -13,9 +13,9 @@ const initModels = () => {
     //Restaurant <--> Meal
     Restaurant.hasMany(Meal);
     Meal.belongsTo(Restaurant);
-    //Order <--> Meal
-    Order.hasOne(Meal);
-    Meal.belongsTo(Order);
+    //Meal <--> Order
+    Meal.hasOne(Order);
+    Order.belongsTo(Meal);
     //User <--> Order
     User.hasOne(Order);
     Order.belongsTo(User);
