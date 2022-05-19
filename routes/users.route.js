@@ -1,6 +1,8 @@
 const express = require('express');
+//Controllers
 const { getAllUsers, createUser, updateUser, deleteUser, login, getAllOrders, getOrderById } = require('../controllers/users.controller');
-const { protectToken, validUserId, validUserExist } = require('../middlewares/users.midlewares');
+//Middlewares
+const { protectToken, validUserId, validUserExist } = require('../middlewares/users.middlewares');
 const { createUserValidations, errorValidations } = require('../middlewares/validations.middlewares');
 
 
@@ -10,7 +12,6 @@ const router = express.Router();
 router.post('/signup', createUserValidations, errorValidations, createUser);
 router.post('/login', login);
 
-//Valid token
 router.use(protectToken);
 
 router.get('/', getAllUsers);

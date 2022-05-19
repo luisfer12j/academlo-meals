@@ -1,13 +1,15 @@
 const express = require('express');
+//Controllers
 const { getAllRestaurants, createRestaurant, getRestaurantById, updateRestaurant, deleteRestaurant, createReview, updateReview, deleteReview } = require('../controllers/restaurants.controller');
+//Middlewares
 const { validRestaurant, validUserId } = require('../middlewares/restaurants.middlewares');
-const { protectToken, validRole } = require('../middlewares/users.midlewares');
+const { protectToken, validRole } = require('../middlewares/users.middlewares');
 const { createReviewValidations, createRestaurantValidations, errorValidations } = require('../middlewares/validations.middlewares');
 
 const router = express.Router();
 
 router.get('/', getAllRestaurants);
-router.get('/:id', getRestaurantById);
+router.get('/:id', validRestaurant, getRestaurantById);
 
 router.use(protectToken);
 router.post('/', createRestaurantValidations, errorValidations, createRestaurant);

@@ -68,13 +68,12 @@ const getAllOrders = catchAsync(async (req, res, next) => {
 const getOrderById = catchAsync(async (req, res, next) => {
     const { id } = req.params;
     const { sesionUser } = req;
-    const order = await Order.findOne({ where: { id, userId: sesionUser.id, status: 'active' } })
+    const order = await Order.findOne({ where: { id, userId: sesionUser.id }, include: [{ model: Meal, include: [{ model: Restaurant }] }] })
 
     if (!order) {
         return next(new AppError('Order not found', 404));
     }
     res.status(200).json({ status: 'Success', order })
-    // const order = 
 });
 
 module.exports = { getAllUsers, createUser, updateUser, deleteUser, login, getAllOrders, getOrderById };

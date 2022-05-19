@@ -1,4 +1,5 @@
 const express = require('express');
+
 const { globalErrorHandler } = require('./controllers/error.controller');
 
 const { mealsRouter } = require('./routes/meals.route');

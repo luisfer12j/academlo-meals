@@ -1,9 +1,9 @@
 const express = require('express');
 //Controllers
 const { createOrder, getMyOrders, updateMyOrder, deleteMyOrder } = require('../controllers/orders.controller');
-const { validMealExist, validOrderStatus, validOrderId } = require('../middlewares/orders.middlewares');
 //Middlewares
-const { protectToken } = require('../middlewares/users.midlewares')
+const { validMealExist, validOrderStatus, validOrderId } = require('../middlewares/orders.middlewares');
+const { protectToken } = require('../middlewares/users.middlewares')
 
 
 

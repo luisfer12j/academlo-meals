@@ -33,4 +33,4 @@ const errorValidations = (req, res, next) => {
     next();
 }
 
-module.exports = { createUserValidations, errorValidations, createRestaurantValidations, createReviewValidations, mealValidations }
+module.exports = { errorValidations, createUserValidations, createRestaurantValidations, createReviewValidations, mealValidations }

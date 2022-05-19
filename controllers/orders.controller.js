@@ -1,8 +1,9 @@
-const { catchAsync } = require('../utils/catchAsync');
 const { AppError } = require('../utils/appError');
 const { Order } = require('../models/order.model');
 const { Meal } = require('../models/meal.model');
 const { Restaurant } = require('../models/restaurant.model');
+
+const { catchAsync } = require('../utils/catchAsync');
 
 
 const createOrder = catchAsync(async (req, res, next) => {
